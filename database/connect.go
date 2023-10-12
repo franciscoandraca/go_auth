@@ -10,7 +10,7 @@ import (
 
 func Conectar() {
 
-	dsn := "usuaeio:Contraseña@/base_dattos?parseTime=false"
+	dsn := "usuario:password@/dase_datos?parseTime=false"
 
 	conexion, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
