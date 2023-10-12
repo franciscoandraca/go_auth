@@ -8,9 +8,11 @@ import (
 	"gorm.io/gorm"
 )
 
+var DB *gorm.DB
+
 func Conectar() {
 
-	dsn := "usuario:password@/dase_datos?parseTime=false"
+	dsn := "usuario:password/db?parseTime=false"
 
 	conexion, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
@@ -21,6 +23,8 @@ func Conectar() {
 		// La conexión a la base de datos MySQL se ha establecido con éxito
 		fmt.Println("La conexión a la base de datos MySQL se ha establecido con éxito")
 	}
+
+	DB = conexion
 
 	conexion.AutoMigrate(&models.User{})
 
